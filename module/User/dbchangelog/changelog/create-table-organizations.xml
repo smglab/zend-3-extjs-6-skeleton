@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="m.sazonov" id="create-table-organizations.xml">
+        <createTable schemaName="public" tableName="organizations">
+            <column name="id" type="int" autoIncrement="true" remarks="Идентификатор">
+                <constraints primaryKey="true" />
+            </column>
+			<column name="inn" type="varchar(20)" remarks="ИНН">
+                <constraints nullable="false"/>
+            </column>
+            <column name="full_name" type="text" remarks="Полное название">
+                <constraints nullable="false"/>
+            </column>
+            <column name="short_name" type="text" remarks="Сокращённое название" />
+        </createTable>        
+    </changeSet>
+</databaseChangeLog>
