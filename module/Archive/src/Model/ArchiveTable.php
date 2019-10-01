@@ -41,7 +41,7 @@ class ArchiveTable
         $now = new \DateTime('NOW', new \DateTimeZone('Europe/Moscow'));
         $data = [
             'name' => $form['name'],
-            'change_datetime' => $now->format('Y-m-d H:h:i'),
+            'change_datetime' => $now->format('Y-m-d H:i:s'),
             'cnt' => $cnt,
             'size' => $size
         ];

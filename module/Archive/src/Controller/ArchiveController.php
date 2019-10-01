@@ -85,7 +85,11 @@ class ArchiveController extends AbstractRestfulController
             $filename = './data/zip/'.$id.'.zip';
             $ret = $zip->open($filename, \ZipArchive::CREATE|\ZipArchive::OVERWRITE);
             foreach( $data['files'] as $key => $val ) {
-                $zip->addFile($val['tmp_name'], $val['name']);
+                $name = $val['name'];
+                if ($zip->statName($name)) {
+                    $name = uniqid() . '_' . $name;
+                }
+                $zip->addFile($val['tmp_name'], $name);
             }
             $zip->close();
             foreach( $data['files'] as $key => $val ) {
@@ -147,9 +151,11 @@ class ArchiveController extends AbstractRestfulController
                 }
             }
             foreach( $data['files'] as $key => $val ) {
-                if(!$zip->statName($val['name'])) {
-                    $zip->addFile($val['tmp_name'], $val['name']);
+                $name = $val['name'];
+                if ($zip->statName($name)) {
+                    $name = uniqid() . '_' . $name;
                 }
+                $zip->addFile($val['tmp_name'], $name);
             }
             $zip->close();
             foreach( $data['files'] as $key => $val ) {
