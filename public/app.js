@@ -4,8 +4,9 @@
  */
 Ext.application({
     name: 'TestProj',
-
-    launch: function () {
-        Ext.Msg.alert('Hello Ext JS', 'Hello! Welcome to Ext JS.');
-    }
+    extend: 'TestProj.Application',
+    requires: [
+        'TestProj.view.main.Main'
+    ],
+    mainView: 'TestProj.view.main.Main'
 });

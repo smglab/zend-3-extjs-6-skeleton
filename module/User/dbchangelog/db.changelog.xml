@@ -5,9 +5,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <!-- DDL -->
-    <include file="changelog/create-table-organizations.xml" relativeToChangelogFile="true" />
+    <include file="changelog/create-table-archive.xml" relativeToChangelogFile="true" />
 
 
     <!-- DML -->
-    <include file="changelog/load-organizations.xml" relativeToChangelogFile="true" />
+    <!--<include file="changelog/load-organizations.xml" relativeToChangelogFile="true" />-->
 </databaseChangeLog>

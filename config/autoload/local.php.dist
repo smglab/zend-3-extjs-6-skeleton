@@ -12,4 +12,8 @@
  */
 
 return [
+    'db' => [
+         'username' => 'Your username for postgresql connection',
+         'password' => 'Your password for postgresql connection',
+     ],
 ];
