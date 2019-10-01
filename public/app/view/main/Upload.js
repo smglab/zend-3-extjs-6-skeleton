@@ -67,6 +67,7 @@ Ext.define('TestProj.view.main.Upload', {
                     fieldLabel: 'Название архива',
                     id: config.id + '-name',
                     name: 'name',
+                    blankText: 'Поле не должно быть пустым',
                     validator: function (value) {
                         if (value.length > 250) {
                             return 'Слишком длинное имя файла!';

@@ -4,11 +4,25 @@ Ext.define('TestProj.view.main.ArchiveController', {
     alias: 'controller.archivecontroller',
 
     onRemoveClick: function (view, recIndex, cellIndex, item, e, record) {
-        var store = view.getStore();
-        store.remove(record);
-        store.reload();
+        Ext.MessageBox.show({
+            title: 'Удалить этот архив?',
+            message: 'Вы уверены, что хотите удалить этот архив?',
+            width: 300,
+            buttons: Ext.Msg.YESNO,
+            buttonText: {
+                yes: 'Да',
+                no: 'Нет'
+            },
+            fn: function (buttonValue) {
+                if (buttonValue === 'yes') {
+                    var store = view.getStore();
+                    store.remove(record);
+                    store.reload();
+                }
+            }
+        });
     },
-    onEditClick: function(view, recIndex, cellIndex, item, e, record) {
+    onEditClick: function (view, recIndex, cellIndex, item, e, record) {
         var store = view.getStore();
         Ext.Ajax.request({
             url: '/archive/' + record.data.id,
@@ -25,13 +39,13 @@ Ext.define('TestProj.view.main.ArchiveController', {
                     maxWidth: 1100
                 }).show();
 
-             }
-         });
+            }
+        });
 
 
     },
 
-    onUploadClick: function(view) {
+    onUploadClick: function (view) {
         var store = view.up('grid').getStore('archives');
         Ext.create('TestProj.view.main.Upload', {
             title: 'Загрузить архив с данными',

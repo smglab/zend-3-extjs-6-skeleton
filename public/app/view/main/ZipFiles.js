@@ -32,13 +32,13 @@ Ext.define('TestProj.form.field.ZipFiles', {
     },
 
     getSubmitData: function () {
-        result = {};
+        var result = {};
         result[this.getName()] = this._filesValue.map(file => file.name).join(',');
         return result;
     },
     createItem: function (record, i) {
-        cmp = this;
-        wrapWidth = this.width - 45;
+        var cmp = this;
+        var wrapWidth = this.width - 45;
         return {
             xtype: 'fieldcontainer',
             layout: 'hbox',
